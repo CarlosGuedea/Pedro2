@@ -18,13 +18,18 @@ $total = $conn->query('SELECT COUNT(*) FROM Usuario')->fetchColumn();
 $elementosPorPagina = 10;
 $totalPaginas = ceil($total / $elementosPorPagina);
 
+# El límite es el número de productos por página
+$limit = $elementosPorPagina;
+# El offset es saltar X productos que viene dado por multiplicar la página - 1 * los productos por página
+$offset = ($pagina - 1) * $elementosPorPagina;
+
 // Calcular el inicio y el fin de la página actual
 $inicio = max(0, min($inicio, $total - 1));
 $fin = min($inicio + $elementosPorPagina - 1, $total - 1);
 
 // Realizar la consulta para obtener los elementos de la página actual
 $stmt = $conn->prepare('SELECT * from Usuario ORDER BY ID OFFSET ? ROWS FETCH NEXT ? ROWS ONLY');
-$stmt->bindValue(1, $inicio, PDO::PARAM_INT);
-$stmt->bindValue(2, $elementosPorPagina, PDO::PARAM_INT);
+$stmt->bindValue(1, $offset, PDO::PARAM_INT);
+$stmt->bindValue(2, $limit, PDO::PARAM_INT);
 $stmt->execute();
 $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);

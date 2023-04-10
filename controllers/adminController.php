@@ -35,4 +35,13 @@ class adminController{
         include 'views/admin/usuarios.php';
         include 'views/layouts/footer.php';
     }
+
+    public static function panelBusquedas(){
+        include 'database/database.php';
+        include 'middleware/autenticacion-admin.php';
+        include 'middleware/busquedas-admin.php';
+        include 'views/layouts/header.php';
+        include 'views/layouts/side-bar.php';
+        include 'views/admin/busquedas.php';
+    }
 }
