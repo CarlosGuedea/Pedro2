@@ -29,6 +29,10 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
 
     $r->addRoute(['GET', 'POST'], '/AdminPanel/usuarios/{pagina:\d+}', [adminController::class, 'panelUsuarios']);
 
+    $r->addRoute(['GET', 'POST'], '/AdminPanel/busquedas', [adminController::class, 'panelBusquedas']);
+
+    $r->addRoute(['GET', 'POST'], '/AdminPanel/solicitudes/{pagina:\d+}', [adminController::class, 'panelSolicitudes']);
+
     $r->addRoute(['GET', 'POST'], '/admin-orden-detalle/{id:\d+}', [ordenesController::class, 'adminOrdenDetalle']);
 });
 

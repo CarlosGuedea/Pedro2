@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: 60% 10% 20% 10%;
     padding-left: 10%;
-    background-color: gray;
+    background-color: #016ff1;
 }
 
 .header a{
@@ -17,11 +17,11 @@
     display: grid;
     grid-template-columns: 33% 33% 33%;
     text-align: center;
-    background-color: dimgray;
+    background-color: #212121;
 }
 
 body{
-    background-color: dimgray;
+    background-color: #212121;
     color: aliceblue;
 }
 
@@ -66,7 +66,7 @@ body{
     position: fixed;
     width: 200px;
     height: 100%;
-    background-color: #151719;
+    background-color: #181c25;
     left: -200px;
     transition: all 500ms linear;
 }
